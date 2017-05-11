@@ -1223,7 +1223,7 @@ vars:
 
     ORACLE_PORTS: 1521
 
-    SSH_PORTS: 22
+    SSH_PORTS: 2222
 
     DNP3_PORTS: 20000
 
