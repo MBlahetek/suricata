@@ -88,10 +88,10 @@ outputs:
 
   # a line based alerts log similar to Snort's fast.log
   - fast:
-      enabled: no
+      enabled: yes
       filename: fast.log
       append: yes
-      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+      filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
 
   # Extensible Event Format (nicknamed EVE) event log in JSON format
   - eve-log:
@@ -980,7 +980,7 @@ logging:
       enabled: yes
       # type: json
   - file:
-      enabled: no
+      enabled: yes
       filename: /var/log/suricata/suricata.log
       # type: json
   - syslog:
