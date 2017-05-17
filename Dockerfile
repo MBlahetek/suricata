@@ -30,10 +30,13 @@ RUN echo "deb http://ppa.launchpad.net/oisf/suricata-stable/ubuntu xenial main" 
     mv /root/dist/suricata.yaml /etc/suricata/suricata.yaml && \
 
 # Download the latest EmergingThreats ruleset
-    wget --no-parent -l1 -r --no-directories -P /etc/suricata/rules/ https://rules.emergingthreats.net/open/suricata/rules/ && \
+    wget --no-parent -l1 -r --no-directories -P /etc/suricata/rules/ https://rules.emergingthreats.net/open/suricata/rules/
+
+# replace rulesets with hardcoded ssh port 22
+COPY rules/* /etc/suricata/rules/
 
 # Clean up
-    rm -rf /root/* && \
+RUN rm -rf /root/* && \
     apt-get purge -y make gcc libpcap-dev libjansson-dev git && \
     apt-get autoremove -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
